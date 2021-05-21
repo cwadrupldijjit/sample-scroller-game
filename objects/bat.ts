@@ -50,6 +50,12 @@ export class Bat implements Dimensions, AnimationElement, RenderedElement {
     }
     
     draw(context: CanvasRenderingContext2D) {
+        const triangle = calculateTrianglePath(this.position, gameState.character.position);
+        
+        context.save();
+        context.translate(this.position.x, this.position.y);
+        context.rotate(triangle.alphaAngle * (Math.PI / 180));
+        context.translate(-this.position.x, -this.position.y);
         context.beginPath();
         context.strokeStyle = 'brown';
         context.lineWidth = 3;
@@ -58,6 +64,7 @@ export class Bat implements Dimensions, AnimationElement, RenderedElement {
         context.fill();
         context.stroke();
         context.closePath();
+        context.restore();
     }
     
     move(triangle: RightTriangle) {
