@@ -7,6 +7,7 @@ interface GameState {
     character?: Character;
     enemies: Bat[];
     obstacles: Dimensions[];
+    enemiesDefeated: number;
     enemyFrequency: number;
     nextWaveTime: number;
     difficultySpeedModifier: number;
@@ -17,6 +18,7 @@ export const gameState: GameState = {
     gameStatus: 'menus',
     enemies: [],
     obstacles: [],
+    enemiesDefeated: 0,
     enemyFrequency: 3000,
     nextWaveTime: -1,
     difficultySpeedModifier: 0,

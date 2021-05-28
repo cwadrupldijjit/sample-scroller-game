@@ -86,6 +86,7 @@ export class Bat implements Dimensions, AnimationElement, RenderedElement {
         
         if (!this.health) {
             gameState.enemies = gameState.enemies.filter(e => e != this);
+            gameState.enemiesDefeated++;
         }
     }
 }

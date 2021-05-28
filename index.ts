@@ -42,10 +42,10 @@ function startGame() {
 
 function gameLoop() {
     if (![ 'paused', 'running' ].includes(gameState.gameStatus)) {
-        if (gameState.gameStatus == 'lost') {
-            console.log('You have lost!');
-        }
         // TODO: detect winning or losing conditions and stop the loop
+        if (gameState.gameStatus == 'lost') {
+            console.log('You have lost! Enemies defeated:', gameState.enemiesDefeated);
+        }
         return;
     }
     
